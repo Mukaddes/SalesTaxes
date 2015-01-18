@@ -55,5 +55,9 @@ ReceiptWriterFactory rFactory = new ReceiptWriterFactory();
 	
 ```
 Results of the task printed on console using log4j console appander
-## Test
+
+## Missing Features
+* spring framework but Spring Tool Suite is used
+* Unit, Integrity and Functional test
+* No input validation
 
