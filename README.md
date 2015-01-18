@@ -27,8 +27,33 @@ name: the product description
 * After reading file the calculation will be started. TaxesCalculation class calculates the taxes and total price by using calculate() method. This class writes the results of calculations in a Receipt object by using getResults() method.
 * Finally ReceiptWriter interface provides to write the results in an output file or console screen. Factory pattern was used here. There is a ReceiptWriterFactory class which help the user to decide that results will write on console or on an output file.
 
+Factory Class
+```java
+public ReceiptWriter getWriter(String writerType) {
+	if (writerType == null) {
+		return null;
+	}
+	if (writerType.equalsIgnoreCase("FILE")) {
+		return new ReceiptFileWriter();
 
+	} else if (writerType.equalsIgnoreCase("CONSOLE")) {
+		return new ReceiptConsoleWrite();
 
+	}
+
+	return null;
+}
+```
+Test with factory pattern
+```java
+ReceiptWriterFactory rFactory = new ReceiptWriterFactory();
+		
+	ReceiptWriter rcw = rFactory.getWriter("CONSOLE");
+	rcw.write(receipt);
+	ReceiptWriter rfw = rFactory.getWriter("FILE");
+	rfw.write(receipt);
+	
+```
 
 ## Test
 
