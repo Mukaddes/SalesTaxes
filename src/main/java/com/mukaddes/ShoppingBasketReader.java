@@ -52,8 +52,8 @@ public class ShoppingBasketReader {
 			// name
 			pr.getPs().setName(restOfTokens(st));
 
-			log4j.error("---INPUT---");
-			log4j.error(pr.getCount() + " " + pr.getPs().getName() + " : "
+			log4j.debug("---INPUT---");
+			log4j.debug(pr.getCount() + " " + pr.getPs().getName() + " : "
 					+ pr.getPs().getPrice());
 			products.add(pr);
 

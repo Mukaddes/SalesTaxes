@@ -27,9 +27,14 @@ public class TestSalesTaxes {
 			log4j.error(e.getLocalizedMessage());
 		}
 		
-		TaxesCalculation tc = new TaxesCalculation(products);
+		TaxesCalculation tc = new TaxesCalculation(products);		
+		tc.calculate();
+		Receipt receipt = tc.getResults();
 		
+		ReceiptWriter rcw = new ReceiptConsoleWrite(receipt);
+		rcw.write();
+		ReceiptWriter rfw = new ReceiptFileWriter(receipt);
+		rfw.write();
 		
 	}
-
 }

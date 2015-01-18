@@ -31,13 +31,11 @@ public class TaxesCalculation {
 		this.products = pr;
 	}
 	
-	public void calculate( List<Product> products ) {
+	public void calculate() {
 
 		double tax = 0.0;
 		double rate = 10;
 		double rateImportedPrroducts = 5;
-
-		log4j.error("---OUTPUT---");
 
 		for (Product product : products) {
 			String type = product.getPs().getType();
@@ -48,11 +46,11 @@ public class TaxesCalculation {
 
 			}
 			if (product.getPs().isImported()) {
-				log4j.error("imported olanı buldum");
+			
 				tax = (product.getPs().getPrice() * rateImportedPrroducts) / 100;
 				product.setTax(product.getTax() + tax);
 				taxSum += tax;
-				log4j.error("taxSum:" + taxSum + " tax: " + tax + " price: "
+				log4j.debug("taxSum:" + taxSum + " tax: " + tax + " price: "
 						+ product.getPs().getPrice());
 			}
 			total += product.getPs().getPrice();
@@ -60,9 +58,17 @@ public class TaxesCalculation {
 		}
 	
 	}
-	public void getResult(List<Product> products ){
+	public Receipt getResults( ){
 		
+		Receipt receipt = new Receipt(products);
+		
+		receipt.setTaxSum(taxSum);
+		receipt.setTotal(total);
+		return receipt;
+		
+		/*
 		log4j.debug("-----OUTPUT-----");
+		StringBuilder sb = new StringBuilder();
 		String str;
 
 		File file = new File("output.txt");
@@ -78,7 +84,7 @@ public class TaxesCalculation {
 				double price = pr.getPs().getPrice() + pr.getTax();
 				str = pr.getCount() + " " + pr.getPs().getName()+ " : " + price;
 				log4j.error(str);
-				bWriter.write(str + "\n");			
+				sb.append(str + "\n");			
 			}
 			
 			//Taxsum	
@@ -103,7 +109,7 @@ public class TaxesCalculation {
 		
 		log4j.error("Sales Taxes: " + taxSum);
 		log4j.error("Total:" + total);
-
+		*/
 	}
 
 	

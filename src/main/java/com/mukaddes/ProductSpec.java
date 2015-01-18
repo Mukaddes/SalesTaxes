@@ -1,4 +1,10 @@
 package com.mukaddes;
+/**
+ * This class to describe specs of product. There are 4 field,
+ *  these are its own property
+ * @author Mukaddes
+ *
+ */
 
 public class ProductSpec {
 	
