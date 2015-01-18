@@ -18,14 +18,14 @@ I used a specialized input file. The input file format is as shown as shown belo
       1       |   imported   |     food     |     10.00    |   box of chocolate     |
       2       |   domestic   |     goods    |     14.99    |        music CD        |
 
-Count: number of product
-Is imported: imported or domistic 
-kind: There are 5 different kinds, foods, goods, book, medical
-price: the amount of money expected
-name: the product description
+***Count***: number of product
+***Is imported***: imported or domistic 
+***kind***: There are 5 different kinds, foods, goods, book, medical
+***price***: the amount of money expected
+***name***: the product description
 
-* After reading file the calculation will be started. TaxesCalculation class calculates the taxes and total price by using calculate() method. This class writes the results of calculations in a Receipt object by using getResults() method.
-* Finally ReceiptWriter interface provides to write the results in an output file or console screen. Factory pattern was used here. There is a ReceiptWriterFactory class which help the user to decide that results will write on console or on an output file.
+* After reading file the calculation will be started. ***TaxesCalculation*** class calculates the taxes and total price by using ***calculate()*** method. This class writes the results of calculations in a Receipt object by using ***getResults()*** method.
+* Finally ***ReceiptWriter*** interface provides to write the results in an output file or console screen. Factory pattern was used here. There is a ***ReceiptWriterFactory*** class which help the user to decide that results will write on console or on an output file.
 
 Factory Class
 ```java
@@ -54,7 +54,7 @@ ReceiptWriterFactory rFactory = new ReceiptWriterFactory();
 	rfw.write(receipt);
 	
 ```
-Results of the task printed on console using log4j console appander
+Results of the task printed on console using ***log4j*** console appander
 
 ## Missing Features
 * spring framework but Spring Tool Suite is used
