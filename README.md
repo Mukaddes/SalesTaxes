@@ -5,7 +5,18 @@ When I purchase items I receive a receipt which lists the name of all the items 
 
 ## Class Diagram
 -![alt text](http://i.imgur.com/NIOcDDd.png README.md URL")
+
 ##Implementation
+
+This application basically makes three operations, these are respectively read, calculate and write. According to the program format we gets the inputs from shopping baskets. So our read operation is carried out by ShoppingBasketReader. This function reads the sales information from "input.txt" file. 
+I used a specialized input file. The input file format is as shown as shown below.
+
+    Count     | Is imported  |     kind     |     price    |          name          |
+------------- | -------------|------------- | -------------|----------------------- |
+      1       |   imported   |     food     |     10.00    |   box of chocolate     |
+      2       |   domestic   |     goods    |     14.99    |        music CD        |
+
+
 
 ## Test
 
