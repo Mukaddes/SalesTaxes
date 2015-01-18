@@ -31,10 +31,12 @@ public class TestSalesTaxes {
 		tc.calculate();
 		Receipt receipt = tc.getResults();
 		
-		ReceiptWriter rcw = new ReceiptConsoleWrite(receipt);
-		rcw.write();
-		ReceiptWriter rfw = new ReceiptFileWriter(receipt);
-		rfw.write();
+		ReceiptWriterFactory rFactory = new ReceiptWriterFactory();
+		
+		ReceiptWriter rcw = rFactory.getWriter("CONSOLE");
+		rcw.write(receipt);
+		ReceiptWriter rfw = rFactory.getWriter("FILE");
+		rfw.write(receipt);
 		
 	}
 }

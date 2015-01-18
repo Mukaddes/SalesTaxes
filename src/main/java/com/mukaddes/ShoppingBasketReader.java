@@ -11,7 +11,11 @@ import java.util.StringTokenizer;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+/**
+ * This class builds shopping basket from file
+ * @author Mukaddes
+ *
+ */
 public class ShoppingBasketReader {
 	
 	private List<Product> products = new ArrayList<Product>();
@@ -63,7 +67,7 @@ public class ShoppingBasketReader {
 		return products;
 
 	}
-	public String restOfTokens(StringTokenizer st) {
+	private String restOfTokens(StringTokenizer st) {
 		StringBuilder sb = new StringBuilder();
 		while (st.hasMoreElements()) {
 			String s = (String) st.nextElement();

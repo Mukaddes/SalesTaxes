@@ -2,6 +2,11 @@ package com.mukaddes;
 
 import java.util.List;
 
+/**
+ *  Receipt details for shopping baskets
+ * @author Mukaddes
+ *
+ */
 public class Receipt {
 	
 	public List products;

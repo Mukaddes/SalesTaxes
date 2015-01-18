@@ -1,7 +1,6 @@
 package com.mukaddes;
 /**
- * This class to describe specs of product. There are 4 field,
- *  these are its own property
+ * This class holds specks of a product.
  * @author Mukaddes
  *
  */

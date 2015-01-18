@@ -1,7 +1,15 @@
 package com.mukaddes;
 
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+/**
+ *
+ * This class writes the receipt information the standart output.
+ * @author Mukaddes
+ *
+ */
 
 public class ReceiptConsoleWrite implements ReceiptWriter {
 
@@ -10,12 +18,10 @@ public class ReceiptConsoleWrite implements ReceiptWriter {
 	private static final Logger log4j = LogManager
 			.getLogger(TaxesCalculation.class.getName());
 
-	public ReceiptConsoleWrite(Receipt r) {
-		this.receipt = r;
-	}
 
 	@Override
-	public boolean write() {
+	public boolean write(Receipt r) {
+		this.receipt = r;
 		log4j.info("-----OUTPUT-----");
 
 		String str;

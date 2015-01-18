@@ -1,13 +1,14 @@
 package com.mukaddes;
 /**
- * These class to universalize the ProductSpec because of product's tax and
- * product's count is not about ProductSpec. These are effects of external factors
+ * This class holds product specks, product count and total tax for it
  * @author Mukaddes
  *
  */
 
 public class Product {
 	
+	//This field separates the product specks from product because 
+	//product's tax and product's count is not about product.
 	private ProductSpec ps;
 	
 	private int count;

@@ -8,19 +8,23 @@ import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+*
+* This class writes the receipt information to specified file
+* @author Mukaddes
+*
+*/
 public class ReceiptFileWriter implements ReceiptWriter {
 	
 	private Receipt receipt;
 	
 	private static final Logger log4j = LogManager
 			.getLogger(TaxesCalculation.class.getName());
-	
-	public ReceiptFileWriter(Receipt r) {
-		this.receipt = r;
-	}
 
 	@Override
-	public boolean write() {
+	public boolean write(Receipt r) {
+		
+		this.receipt = r;
 		String str;
 
 		File file = new File("output.txt");
