@@ -2,5 +2,5 @@
 1 box of chocolate  : 10.5
 1 music CD  : 16.489
 1 book  : 12.49
-Total:37,50
 Sales Taxes: 2,00
+Total:39,50

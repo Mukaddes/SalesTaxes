@@ -18,62 +18,20 @@ import org.apache.logging.log4j.Logger;
 
 public class TaxesCalculation {
 
-	private List<Product> products = new ArrayList<Product>();
-
-	// Keep the input file name
-	private String filename = "input.txt";
-
 	double taxSum = 0.00;
 
 	double total = 0.00;
+	
+	private List<Product> products = new ArrayList<Product>();
 
 	private static final Logger log4j = LogManager
 			.getLogger(TaxesCalculation.class.getName());
 
-	public void inputReader() throws IOException {
-		BufferedReader reader;
-		File filepath = new File(filename);
-		Product pr;
-		reader = new BufferedReader(new InputStreamReader(new FileInputStream(
-				filepath)));
-
-		String line;
-		StringTokenizer st;
-
-		while ((line = reader.readLine()) != null && !line.equals("")) {
-			st = new StringTokenizer(line);
-
-			pr = new Product();
-
-			// count
-			pr.setCount(Integer.parseInt(st.nextToken()));
-
-			// imported
-			if (st.nextToken().equals("imported")) {
-				pr.getPs().setImported(true);
-			} else {
-				pr.getPs().setImported(false);
-			}
-			// kind
-			pr.getPs().setType(st.nextToken());
-
-			// price
-			pr.getPs().setPrice(Double.parseDouble(st.nextToken()));
-
-			// name
-			pr.getPs().setName(restOfTokens(st));
-
-			log4j.error("---INPUT---");
-			log4j.error(pr.getCount() + " " + pr.getPs().getName() + " : "
-					+ pr.getPs().getPrice());
-			products.add(pr);
-
-		}
-		reader.close();
-
+	public TaxesCalculation(List<Product> pr){
+		this.products = pr;
 	}
-
-	public void calculate() {
+	
+	public void calculate( List<Product> products ) {
 
 		double tax = 0.0;
 		double rate = 10;
@@ -102,7 +60,7 @@ public class TaxesCalculation {
 		}
 	
 	}
-	public void printResult(){
+	public void getResult(List<Product> products ){
 		
 		log4j.debug("-----OUTPUT-----");
 		String str;
@@ -123,17 +81,18 @@ public class TaxesCalculation {
 				bWriter.write(str + "\n");			
 			}
 			
-		
-			
-			// Total			
-		    double finalValue = Math.round( total* 20.0 ) / 20.0;
-			String result = String.format("%.2f", finalValue);
-			bWriter.write("Total:" + result + "\n");
-			
 			//Taxsum	
-			finalValue = Math.round( taxSum * 20.0 ) / 20.0;
+			double finalValue = Math.round( taxSum * 20.0 ) / 20.0;
+			String result = String.format("%.2f", finalValue);
+			bWriter.write("Sales Taxes: " + result + "\n");
+			
+			// Total	
+			total += taxSum;
+		    finalValue = Math.round( total* 20.0 ) / 20.0;
 			result = String.format("%.2f", finalValue);
-			bWriter.write("Sales Taxes: " + result);
+			bWriter.write("Total:" + result );
+			
+			
 			
 			
 			bWriter.flush();
@@ -146,14 +105,6 @@ public class TaxesCalculation {
 		log4j.error("Total:" + total);
 
 	}
-	public String restOfTokens(StringTokenizer st) {
-		StringBuilder sb = new StringBuilder();
-		while (st.hasMoreElements()) {
-			String s = (String) st.nextElement();
-			sb.append(s);
-			sb.append(" ");
-		}
-		return sb.toString();
-	}
 
+	
 }
